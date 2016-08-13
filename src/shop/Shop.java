@@ -1,24 +1,22 @@
 package shop;
 
+import java.util.Vector;
+
 public class Shop {
 	private String name;
 	private String address;
 	private String owner;
-	private Milk[] milkBar;
-	private int flag;
+	private Vector milkBar;
 
-	public Shop(String name, String address, String owner, Milk[] milkBar, int flag) {
+	public Shop(String name, String address, String owner, Vector milkBar) {
 		this.name = name;
 		this.address = address;
 		this.owner = owner;
 		this.milkBar = milkBar;
-		flag = milkBar.length - 1;
 	}
 
 	public Shop(String name, String address, String owner) {
-		this.name = name;
-		this.address = address;
-		this.owner = owner;
+		this(name, address, owner, new Vector());
 	}
 
 	public String getName() {
@@ -34,14 +32,14 @@ public class Shop {
 	}
 
 	public boolean isThereMilk() {
-		return flag >= 0;
+		return milkBar.isEmpty();
 	}
 
 	public Milk buyMilk(Milk m) {
-		return milkBar[flag--];
+		return (Milk) milkBar.remove(milkBar.indexOf(m));
 	}
 
 	public void milkFilling(Milk m) {
-		milkBar[++flag] = m;
+		milkBar.add(m);
 	}
 }
