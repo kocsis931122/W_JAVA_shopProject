@@ -1,14 +1,14 @@
 package shop;
 
-import java.util.Vector;
+import java.util.Hashtable;
 
 public class Shop {
 	private String name;
 	private String address;
 	private String owner;
-	private Vector milkBar;
+	private Hashtable milkBar;
 
-	public Shop(String name, String address, String owner, Vector milkBar) {
+	public Shop(String name, String address, String owner, Hashtable milkBar) {
 		this.name = name;
 		this.address = address;
 		this.owner = owner;
@@ -16,7 +16,7 @@ public class Shop {
 	}
 
 	public Shop(String name, String address, String owner) {
-		this(name, address, owner, new Vector());
+		this(name, address, owner, new Hashtable());
 	}
 
 	public String getName() {
@@ -35,11 +35,11 @@ public class Shop {
 		return milkBar.isEmpty();
 	}
 
-	public Milk buyMilk(Milk m) {
-		return (Milk) milkBar.remove(milkBar.indexOf(m));
+	public Milk buyMilk(long barCode) {
+		return (Milk) milkBar.remove(milkBar.get(new Long(barCode)));
 	}
 
 	public void milkFilling(Milk m) {
-		milkBar.add(m);
+		milkBar.put(new Long(m.getBarCode()), m);
 	}
 }

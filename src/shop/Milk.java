@@ -3,6 +3,8 @@ package shop;
 import java.util.Date;
 
 public class Milk {
+	private long barCode;
+
 	public static final int LITER = 1000;
 	public static final int HALFLITER = 500;
 	public static final int GLASS = 200;
@@ -15,7 +17,8 @@ public class Milk {
 	private double dripping;
 	private long price;
 
-	public Milk(int capacity, String company, Date warrant, double dripping, long price) {
+	public Milk(long barCode, int capacity, String company, Date warrant, double dripping, long price) {
+		this.barCode = barCode;
 		this.capacity = capacity;
 		this.company = company;
 		this.warrant = warrant;
@@ -25,6 +28,10 @@ public class Milk {
 
 	public boolean joMeg() {
 		return false;
+	}
+
+	public long getBarCode() {
+		return barCode;
 	}
 
 	public int getCapacity() {
