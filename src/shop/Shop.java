@@ -15,6 +15,12 @@ public class Shop {
 		flag = milkBar.length - 1;
 	}
 
+	public Shop(String name, String address, String owner) {
+		this.name = name;
+		this.address = address;
+		this.owner = owner;
+	}
+
 	public String getName() {
 		return name;
 	}
