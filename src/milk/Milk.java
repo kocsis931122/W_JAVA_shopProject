@@ -1,8 +1,8 @@
-package shop;
+package milk;
 
 import java.util.Date;
 
-public class Milk {
+public abstract class Milk {
 	private long barCode;
 
 	public static final int LITER = 1000;
@@ -15,15 +15,13 @@ public class Milk {
 	private String company;
 	private Date warrant;
 	private double dripping;
-	private long price;
 
-	public Milk(long barCode, int capacity, String company, Date warrant, double dripping, long price) {
+	public Milk(long barCode, int capacity, String company, Date warrant, double dripping) {
 		this.barCode = barCode;
 		this.capacity = capacity;
 		this.company = company;
 		this.warrant = warrant;
 		this.dripping = dripping;
-		this.price = price;
 	}
 
 	public boolean joMeg() {
@@ -50,13 +48,8 @@ public class Milk {
 		return dripping;
 	}
 
-	public long getPrice() {
-		return price;
-	}
-
 	public String toString() {
-		return "Capacity: " + capacity + " Company: " + company + " Warrant:" + warrant + " Dripping: " + dripping
-				+ " Price: " + price;
+		return "Capacity: " + capacity + " Company: " + company + " Warrant:" + warrant + " Dripping: " + dripping;
 	}
 
 }

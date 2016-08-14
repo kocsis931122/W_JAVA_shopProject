@@ -2,6 +2,8 @@ package shop;
 
 import java.util.Hashtable;
 
+import milk.Milk;
+
 public class Shop {
 	private String name;
 	private String address;
@@ -36,10 +38,20 @@ public class Shop {
 	}
 
 	public Milk buyMilk(long barCode) {
-		return (Milk) milkBar.remove(milkBar.get(new Long(barCode)));
+		ShopEntry entry = (ShopEntry) milkBar.get(barCode);
+		if (entry != null) {
+			entry.removeFromQuantity(1);
+			return entry.getMilk();
+		}
+		return null;
 	}
 
 	public void milkFilling(Milk m) {
-		milkBar.put(new Long(m.getBarCode()), m);
+		ShopEntry entry = (ShopEntry) milkBar.get(m.getBarCode());
+		if (entry == null) {
+			entry = new ShopEntry(m, 1, 100);
+			milkBar.put(m.getBarCode(), entry);
+		} else
+			entry.addToQuantity(1);
 	}
 }
