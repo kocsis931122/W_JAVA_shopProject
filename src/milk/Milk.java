@@ -24,8 +24,8 @@ public abstract class Milk {
 		this.dripping = dripping;
 	}
 
-	public boolean joMeg() {
-		return false;
+	public boolean isMilkFine() {
+		return new Date().before(warrant);
 	}
 
 	public long getBarCode() {
