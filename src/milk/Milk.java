@@ -2,7 +2,9 @@ package milk;
 
 import java.util.Date;
 
-public abstract class Milk {
+import food.Food;
+
+public abstract class Milk extends Food {
 	private long barCode;
 
 	public static final int LITER = 1000;
@@ -17,10 +19,8 @@ public abstract class Milk {
 	private double dripping;
 
 	public Milk(long barCode, int capacity, String company, Date warrant, double dripping) {
-		this.barCode = barCode;
+		super(barCode, company, warrant);
 		this.capacity = capacity;
-		this.company = company;
-		this.warrant = warrant;
 		this.dripping = dripping;
 	}
 
@@ -49,7 +49,7 @@ public abstract class Milk {
 	}
 
 	public String toString() {
-		return "Capacity: " + capacity + " Company: " + company + " Warrant:" + warrant + " Dripping: " + dripping;
+		return super.toString() + "Dripping: " + dripping;
 	}
 
 }

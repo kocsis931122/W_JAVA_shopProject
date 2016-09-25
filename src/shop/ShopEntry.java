@@ -1,47 +1,47 @@
 package shop;
 
-import milk.Milk;
+import food.Food;
 
 public class ShopEntry {
-	private Milk milk;
-	private int quantity;
-	private int price;
+	private Food food;
+	private long quantity;
+	private long price;
 
-	public ShopEntry(Milk milk, int quantity, int price) {
-		this.milk = milk;
+	public ShopEntry(Food food, long quantity, long price) {
+		this.food = food;
 		this.quantity = quantity;
 		this.price = price;
 	}
 
-	public Milk getMilk() {
-		return milk;
+	public Food getFood() {
+		return food;
 	}
 
-	public void setMilk(Milk milk) {
-		this.milk = milk;
+	public void setFood(Food food) {
+		this.food = food;
 	}
 
-	public int getQuantity() {
+	public long getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(long quantity) {
 		this.quantity = quantity;
 	}
 
-	public int getPrice() {
+	public long getPrice() {
 		return price;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(long price) {
 		this.price = price;
 	}
 
-	public void addToQuantity(int quantity) {
+	public void addToQuantity(long quantity) {
 		this.quantity += quantity;
 	}
 
-	public void removeFromQuantity(int quantity) {
+	public void removeFromQuantity(long quantity) {
 		this.quantity -= quantity;
 	}
 }
